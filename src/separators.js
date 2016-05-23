@@ -1,39 +1,11 @@
 'use strict';
 
 function thousands_separators(num) {
- var str=num.toString();
- var newStr = "";
-var count = 0;
- 
-if(str.indexOf(".")==-1){
-   for(var i=str.length-1;i>=0;i--){
- if(count % 3 == 0 && count != 0){
-   newStr = str.charAt(i) + "," + newStr;
- }else{
-   newStr = str.charAt(i) + newStr;
+ var b=parseInt(num).toString();  
+   var len=b.length;  
+   if(len<=3){return b;}  
+   var r=len%3;  
+   return r>0?b.slice(0,r)+","+b.slice(r,len).match(/\d{3}/g).join(","):b.slice(r,len).match(/\d{3}/g).join(",");  
  }
- count++;
-   }
-   str = newStr + ".00"; //自动补小数点后两位
-   console.log(str)
-}
-else
-{
-   for(var i = str.indexOf(".")-1;i>=0;i--){
- if(count % 3 == 0 && count != 0){
-   newStr = str.charAt(i) + "," + newStr;
- }else{
-   newStr = str.charAt(i) + newStr; //逐个字符相接起来
- }
- count++;
-   }
-   str = newStr + (str + "00").substr((str + "00").indexOf("."),3);
-   console.log(str)
- } 
-}
-thousands_separators('100'); 
-thousands_separators('1000');  
-thousands_separators('100000');  
-thousands_separators('1000.0');
-thousands_separators('100.2342');
+
 module.exports = thousands_separators;
