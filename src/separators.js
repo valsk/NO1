@@ -1,7 +1,7 @@
 'use strict';
 
 function thousands_separators(num) {
-var str_num = num + "";//转换成字符串
+ var str_num = num + "";//转换成字符串
 var ret_num = "";
 var counter = 0;
 for(var i=str_num.length-1;i>=0;i--)
@@ -13,10 +13,11 @@ counter = 0;
 continue;
 }
 counter++;
-if(i!=0&&str_num.charAt(i-1)!="."){
-	if(counter==3){
-		counter=0;
-       ret_num = "," + ret_num;
+if(counter==3)
+{
+counter = 0;
+if(i!=0&&str_num.charAt(i-1)!=".")
+ret_num = "," + ret_num;
 }
 }
 return ret_num;
