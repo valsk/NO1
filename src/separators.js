@@ -10,7 +10,7 @@ function thousands_separators(num) {
     if(str_num.charAt(i)==".")
     {
          counter = 0;
-         continue;
+         break;
     }
    counter++;
    if(counter==3)
