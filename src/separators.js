@@ -12,7 +12,6 @@ function thousands_separators(num) {
          counter = 0;
          continue;
     }
-  else{
    counter++;
    if(counter==3)
    {
@@ -21,7 +20,6 @@ function thousands_separators(num) {
        ret_num = "," + ret_num;
   }
  }
-}
   return ret_num;
  }
 
