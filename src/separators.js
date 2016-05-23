@@ -31,5 +31,9 @@ else
    console.log(str)
  } 
 }
-
+formatNum('100'); 
+formatNum('1000');  
+formatNum('100000');  
+formatNum('1000.0');
+formatNUm('100.2342');
 module.exports = thousands_separators;
