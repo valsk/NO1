@@ -1,26 +1,15 @@
 'use strict';
 
 function thousands_separators(num) {
-  var str_num = num + "";//转换成字符串
- var ret_num = "";
- var counter = 0;
- for(var i=str_num.length-1;i>=0;i--)
- {
-    ret_num = str_num.charAt(i) + ret_num;
-    if(str_num.charAt(i)==".")
-    {
-         counter = 0;
-         break;
-    }
-   counter++;
-   if(counter==3)
-   {
-        counter = 0;
-       if(i!=0&&str_num.charAt(i-1)!=".")
-       ret_num = "," + ret_num;
-  }
- }
-  return ret_num; 
- }
-
+  var nStr=num.toString();
+  nStr += '';
+	var x = nStr.split('.');
+	x1 = x[0];
+	x2 = x.length > 1 ? '.' + x[1] : '';
+	var rgx = /(\d+)(\d{3})/;
+	while (rgx.test(x1)) {
+		x1 = x1.replace(rgx, '$1' + ',' + '$2');
+	}
+	return x1 + x2;
+}
 module.exports = thousands_separators;
