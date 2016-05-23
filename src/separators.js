@@ -1,11 +1,16 @@
 'use strict';
 
 function thousands_separators(num) {
- var b=parseInt(num).toString();  
-   var len=b.length;  
-   if(len<=3){return b;}  
-   var r=len%3;  
-   return r>0?b.slice(0,r)+","+b.slice(r,len).match(/\d{3}/g).join(","):b.slice(r,len).match(/\d{3}/g).join(",");  
+var nstr=num.toString(); 
+ nStr += '';
+	x = nStr.split('.');
+	x1 = x[0];
+	x2 = x.length > 1 ? '.' + x[1] : '';
+	var rgx = /(\d+)(\d{3})/;
+	while (rgx.test(x1)) {
+		x1 = x1.replace(rgx, '$1' + ',' + '$2');
+	}
+	return x1 + x2;
  }
 
 module.exports = thousands_separators;
