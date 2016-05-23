@@ -3,7 +3,7 @@
 function thousands_separators(num) {
       var s=num.toString();
       s=s.replace(/^(\d*)$/,"$1.");
-        s=(s+).replace(/(\d*\.\d\d)\d*/,"$1");
+        s=(s+"00").replace(/(\d*\.\d\d)\d*/,"$1");
         s=s.replace(".",",");
         var re=/(\d)(\d{3},)/;
         while(re.test(s))
